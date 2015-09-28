@@ -1,0 +1,23 @@
+<Context>
+    <!-- Database connection -->
+    <Resource driverClassName="org.postgresql.Driver"
+              maxActive="20"
+              maxIdle="2"
+              maxWait="5000"
+              name="jdbc/CubaDS"
+              password="root"
+              type="javax.sql.DataSource"
+              url="jdbc:postgresql://localhost/perftest"
+              username="root"/>
+    <!-- Switch off session serialization -->
+    <Manager pathname=""/>
+    <!--<Resource driverClassName="org.hsqldb.jdbc.JDBCDriver"
+          maxActive="20"
+          maxIdle="2"
+          maxWait="5000"
+          name="jdbc/CubaDS"
+          password=""
+          type="javax.sql.DataSource"
+          url="jdbc:hsqldb:hsql://localhost/perftest"
+          username="sa"/>-->
+</Context>

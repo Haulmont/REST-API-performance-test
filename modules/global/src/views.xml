@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.perftest.entity.Comment"
+          name="comment-edit">
+        <property name="request">
+            <property name="number"/>
+        </property>
+        <property name="text"/>
+        <property name="user">
+            <property name="login"/>
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.company.perftest.entity.Request"
+          name="request-edit">
+        <property name="number"/>
+        <property name="title"/>
+        <property name="description"/>
+        <property name="status"/>
+        <property name="comments">
+            <property name="text"/>
+            <property name="user">
+                <property name="login"/>
+                <property name="name"/>
+            </property>
+        </property>
+    </view>
+</views>

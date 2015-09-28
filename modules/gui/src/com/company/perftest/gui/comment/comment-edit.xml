@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.perftest.gui.comment.CommentEdit"
+        datasource="commentDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.perftest.gui.comment">
+    <dsContext>
+        <datasource id="commentDs"
+                    class="com.company.perftest.entity.Comment"
+                    view="comment-edit"/>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="commentDs">
+            <column width="250px">
+                <field id="request"/>
+                <field id="text"/>
+                <field id="user"/>
+            </column>
+        </fieldGroup>
+        <iframe id="windowActions"
+                screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.perftest.gui.comment.CommentBrowse"
+        focusComponent="commentsTable"
+        lookupComponent="commentsTable"
+        messagesPack="com.company.perftest.gui.comment">
+    <dsContext>
+        <collectionDatasource id="commentsDs"
+                              class="com.company.perftest.entity.Comment"
+                              view="comment-edit">
+            <query>
+                <![CDATA[select e from perftest$Comment e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="commentsTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="commentsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="commentsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="request"/>
+                <column id="text"/>
+                <column id="user"/>
+            </columns>
+            <rows datasource="commentsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="commentsTable.create"/>
+                <button id="editBtn"
+                        action="commentsTable.edit"/>
+                <button id="removeBtn"
+                        action="commentsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

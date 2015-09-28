@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.perftest.gui.request.RequestEdit"
+        datasource="requestDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.perftest.gui.request">
+    <dsContext>
+        <datasource id="requestDs"
+                    class="com.company.perftest.entity.Request"
+                    view="request-edit">
+            <collectionDatasource id="commentsDs"
+                                  property="comments"/>
+        </datasource>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="requestDs">
+            <column width="250px">
+                <field id="number"/>
+                <field id="title"/>
+                <field id="description"/>
+                <field id="status"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="commentsBox"
+                  caption="msg://com.company.perftest.entity/Request.comments">
+            <table id="commentsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="text"/>
+                    <column id="user"/>
+                </columns>
+                <rows datasource="commentsDs"/>
+                <buttonsPanel>
+                    <button action="commentsTable.create"/>
+                    <button action="commentsTable.edit"/>
+                    <button action="commentsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <iframe id="windowActions"
+                screen="editWindowActions"/>
+    </layout>
+</window>
